@@ -117,12 +117,12 @@ if (inputBegin.ToLower() == "y")
         foreach (var curriculum in selectedcourses.StudentCourse)
         {
             //?- means tertiary operator
-            Console.WriteLine($"{curriculum.Subject} - {(curriculum.IsTaken ? "This subject is unavailable." : "Available")}");
+            Console.WriteLine($"{curriculum.Id}.{curriculum.Subject} - {(curriculum.IsTaken ? "This subject is unavailable." : "Available")}");
         }
         Console.WriteLine($"\nPlease Select the Required Curriculum: \n");
         var inputStudentCourse = Console.ReadLine();
 
-        var selectedCurriculum = selectedcourses.StudentCourse.FirstOrDefault(curriculum => curriculum.Subject == inputStudentCourse);
+        var selectedCurriculum = selectedcourses.StudentCourse.FirstOrDefault(curriculum => curriculum.Id.ToString() == inputStudentCourse);
 
     if (selectedCurriculum == null)
     {
